@@ -11,7 +11,9 @@
 source: https://moodle.ecs.soton.ac.uk/mod/page/view.php?id=44739
 
 The bash script can be used by providing the email ID as the first (and only) argument, e.g.
+
 ```./Solution.sh dem```
+
 It will return:
 - The staff member's name
 - The staff member's full name
