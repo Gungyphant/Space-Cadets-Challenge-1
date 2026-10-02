@@ -9,3 +9,14 @@
 > Write a program to find the name (and/or other information) about a from their ID.
 
 source: https://moodle.ecs.soton.ac.uk/mod/page/view.php?id=44739
+
+The bash script can be used by providing the email ID as the first (and only) argument, e.g.
+```./Solution.sh dem```
+It will return:
+- The staff member's name
+- The staff member's full name
+- The staff member's description
+- The staff member's job title
+- The staff member's work phone
+- The URL for the staff member's official photo
+- A list of the staff member's research interests
