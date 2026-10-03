@@ -1,4 +1,3 @@
-
 #!/bin/bash
 set -e  # Causes errors to terminate the script
 
