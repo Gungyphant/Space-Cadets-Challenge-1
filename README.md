@@ -8,7 +8,7 @@
 > 
 > Write a program to find the name (and/or other information) about a from their ID.
 
-source: https://moodle.ecs.soton.ac.uk/mod/page/view.php?id=44739
+_source: https://moodle.ecs.soton.ac.uk/mod/page/view.php?id=44739_
 
 The bash script can be used by providing the email ID as the first (and only) argument, e.g. ```./Solution.sh dem```
 
