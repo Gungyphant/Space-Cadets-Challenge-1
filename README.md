@@ -10,13 +10,7 @@
 
 source: https://moodle.ecs.soton.ac.uk/mod/page/view.php?id=44739
 
-The bash script can be used by providing the email ID as the first (and only) argument, e.g.
-
-```./Solution.sh dem```
-
-Alternatively, the data can be gotten in a csv format with -d:
-
-```./Solution.sh -d dem```
+The bash script can be used by providing the email ID as the first (and only) argument, e.g. ```./Solution.sh dem```
 
 It will return:
 - The staff member's name
@@ -26,3 +20,7 @@ It will return:
 - The staff member's work phone
 - The URL for the staff member's official photo
 - A list of the staff member's research interests
+
+Alternatively, the data can be gotten in a csv format with -d ```./Solution.sh -d dem```
+
+For a demonstration with various IDs, run ```./Demonstrate\ bash\ solution.sh```
