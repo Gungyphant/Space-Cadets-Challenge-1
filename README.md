@@ -10,6 +10,8 @@
 
 _source: https://moodle.ecs.soton.ac.uk/mod/page/view.php?id=44739_
 
+### Bash solution:
+
 The bash script can be used by providing the email ID as the first (and only) argument, e.g. ```./Solution.sh dem```
 
 It will return:
@@ -24,3 +26,24 @@ It will return:
 Alternatively, the data can be gotten in a csv format with -d ```./Solution.sh -d dem```
 
 For a demonstration with various IDs, run ```./Demonstrate\ bash\ solution.sh```
+
+
+### Python solution:
+
+The Python code can be used by passing the ID as the only argument:
+
+```
+import Python_Solution
+show_id_data("dem")
+```
+
+_Note: to avoid showing the image, pass False as the second argument_
+
+Alternatively, the data can be gotten as a dictionary via the other function:
+
+```
+import Python_Solution
+get_id_data("dem")
+```
+
+For a demonstration with various IDs (with image displaying disabled), run the file
