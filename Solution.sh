@@ -28,6 +28,13 @@ second_page=$(curl -s $second_url)
 third_url=https://www.southampton.ac.uk$(echo "$second_page" | grep "<a" | cut -f2 -d\")  # As the url omits the domain it must be manually added
 third_page=$(curl -s $third_url)
 
+third_page_length=$(echo "$third_page" | wc -l)
+
+if [ $third_page_length -lt 2000 ]; then
+	# Some pages are encoded with gzip
+	third_page=$(curl -s $third_url | gunzip)  # For some reason echoing doesn't work here
+fi
+
 # The name is found in the only <h1> on the page:
 name=$(echo "$third_page" | grep "<h1>" | cut -f2 -d\> | cut -f1 -d\<)  # it feels like there should be a better way than two cuts, but we haven't learnt it yet
 
@@ -56,7 +63,9 @@ if [ $pretty = True ]; then
 	echo "Job Title:    $jobTitle"
 	echo "Phone Number: $phone_number"
 	echo "Photo URL:    $image_url"
-	printf "Research Interests:\n$(echo "$research_interests" | awk '{print "- " $0}')\n"  # printf handles \n better than echo
+	if [ -n "$research_interests" ]; then
+		printf "Research Interests:\n$(echo "$research_interests" | awk '{print "- " $0}')\n"  # printf handles \n better than echo
+	fi
 else
 	echo "$name,$full_name,$description,$jobTitle,$phone_number,$image_url" $(echo "$research_interests" | awk '{print "," $0}')
 fi
