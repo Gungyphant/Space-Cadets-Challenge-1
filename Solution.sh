@@ -51,7 +51,7 @@ image_url=https://www.southampton.ac.uk$(echo "$third_page" | grep -A14 "\"@type
 
 # The staff member's research interests are part of the html, so must be found via a more complex search
 # First, the section of the page after the h3-d 'Research interests' title must be found, then the contents of the immediately succeeding <ul> (gotten with the next two
-# greps), then each line of the list must be gotten (grep, cut), have its tags removed (cut, rev, cut (from what was previously the end), rev), and have "bullet points" 
+# greps), then each line of the list must be gotten (grep, cut), have its tags removed (cut, rev, cut (from what was previously the end), rev), and have bullet points
 # prepended (awk)
 research_interests=$(echo "$third_page" | grep -A100000 "<h3>Research interests" | grep -A1000000 "<ul>" | grep -B10 "</ul>" -m 1 | grep "<li" | cut -f3 -d\" | cut -c 2- | rev | cut -c 6- | rev)
 
@@ -64,7 +64,7 @@ if [ $pretty = True ]; then
 	echo "Phone Number: $phone_number"
 	echo "Photo URL:    $image_url"
 	if [ -n "$research_interests" ]; then
-		printf "Research Interests:\n$(echo "$research_interests" | awk '{print "- " $0}')\n"  # printf handles \n better than echo
+		printf "Research Interests:\n$(echo "$research_interests" | awk '{print "• " $0}')\n"  # printf handles \n better than echo
 	fi
 else
 	echo "$name,$full_name,$description,$jobTitle,$phone_number,$image_url" $(echo "$research_interests" | awk '{print "," $0}')
