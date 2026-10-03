@@ -14,6 +14,10 @@ The bash script can be used by providing the email ID as the first (and only) ar
 
 ```./Solution.sh dem```
 
+Alternatively, the data can be gotten in a csv format with -d:
+
+```./Solution.sh -d dem```
+
 It will return:
 - The staff member's name
 - The staff member's full name
