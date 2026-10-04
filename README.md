@@ -23,7 +23,7 @@ It will return:
 - The URL for the staff member's official photo
 - A list of the staff member's research interests
 
-Alternatively, the data can be gotten in a csv format with -d ```./Solution.sh -d dem```
+Alternatively, the data can be gotten in a csv format with -d ```./Bash\ Solution.sh -d dem```
 
 For a demonstration with various IDs, run ```./Demonstrate\ bash\ solution.sh```
 
