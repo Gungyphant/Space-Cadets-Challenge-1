@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e  # Causes errors to terminate the script
+trap 'echo unknown error on $LINENO' ERR  # Alerts the user the error occurs (this happens just before set -e terminates the script)
 
 if [ $1 = "-d" ]; then
 	id=$2
@@ -17,15 +18,27 @@ if [ -z "$first_page" ]; then
 	exit 1
 fi
 
+
 # The first page redirects to https://www.southampton.ac.uk/people/[id]
 # The link it redirects to is in an <a> tag enclosed in quotes:
 second_url=$(echo "$first_page" | grep "<a" | cut -f2 -d\")  # quotes around $first_page preserve the line breaks; grep finds the right line; cut gets the url from the tag
 second_page=$(curl -s $second_url)
 
+if [ -z "$second_page" ]; then
+    echo "No staff member with that ID can be found"
+    exit 2
+fi
+
+
 # The second page also redirects, this time to /people/[id]/[name]
 # The name could be gotten on this page, but it might not match the name displayed on the website
 third_url=https://www.southampton.ac.uk$(echo "$second_page" | grep "<a" | cut -f2 -d\")  # As the url omits the domain it must be manually added
 third_page=$(curl -s $third_url)
+
+if [ -z "$third_page" ]; then
+    echo "No staff member with that ID can be found"
+    exit 3
+fi
 
 third_page_length=$(echo "$third_page" | wc -l)
 

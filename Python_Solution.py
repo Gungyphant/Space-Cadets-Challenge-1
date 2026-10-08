@@ -28,7 +28,7 @@ def get_id_data(id: str) -> dict[str, str]:
     results["Job Title"] = json_data["jobTitle"]
     results["Phone Number"] = json_data["telephone"]
     if "image" in json_data:
-        results["Photo URL"] = f"https://www.southampton.ac.uk{json_data["image"]["url"].replace("thumbnail", "max_1300x1300")}"
+        results["Photo URL"] = f'https://www.southampton.ac.uk{json_data["image"]["url"].replace("thumbnail", "max_1300x1300")}'
     results["Research Interests"] = [el.get_attribute("innerHTML") for el in driver.find_elements(By.XPATH, r"/html/body/div[3]/div[1]/main/div[9]/div/div/article/section/section/div[2]/div/ul/li")]
     return results
 
