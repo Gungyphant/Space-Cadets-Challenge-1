@@ -22,7 +22,8 @@ def get_id_data(id: str) -> dict[str, str]:
     except selenium.common.exceptions.NoSuchElementException:
         return {}
     results["Name"] = driver.find_element(By.XPATH, r"/html/body/div[3]/div[1]/main/div[7]/div[2]/div[2]/div[1]/h1").text
-    results["Full Name"] = (lambda x: x[:x.index("|") - 1])(driver.find_element(By.XPATH, r"/html/head/meta[10]").get_attribute("content"))
+    full_name_with_bar = driver.find_element(By.XPATH, r"/html/head/meta[10]").get_attribute("content")
+    results["Full Name"] = full_name_with_bar[:full_name_with_bar.index("|") - 1]
     results["Description"] = driver.find_element(By.XPATH, r"/html/head/meta[11]").get_attribute("content")
     json_data = json.loads(driver.find_element(By.XPATH, r"/html/head/script[4]").get_attribute("innerHTML"))["@graph"][1]
     results["Job Title"] = json_data["jobTitle"]
