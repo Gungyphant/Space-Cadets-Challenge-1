@@ -30,6 +30,8 @@ For a demonstration with various IDs, run ```./Demonstrate\ bash\ solution.sh```
 
 ### Python solution:
 
+_Prior to running the code for the first time, install the modules selenium, pillow (not PIL), and requests_
+
 The Python code can be used by passing the ID as the only argument:
 
 ```
@@ -37,7 +39,7 @@ import Python_Solution
 show_id_data("dem")
 ```
 
-_Note: to avoid showing the image, pass False as the second argument_
+`show_id_data` also takes an optional second argument (defaults to True) that determines if the image should be shown
 
 Alternatively, the data can be gotten as a dictionary via the other function:
 
