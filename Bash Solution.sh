@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e  # Causes errors to terminate the script
-trap 'echo unknown error on $LINENO' ERR  # Alerts the user the error occurs (this happens just before set -e terminates the script)
+trap 'echo unknown error on $LINENO' ERR  # Alerts the user when an error occurs (this happens just before set -e terminates the script)
 
 if [ $1 = "-d" ]; then
 	id=$2
