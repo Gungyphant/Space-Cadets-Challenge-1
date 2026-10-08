@@ -47,3 +47,5 @@ get_id_data("dem")
 ```
 
 For a demonstration with various IDs (with image displaying disabled), run the file
+
+Note: for both solutions www.ecs.soton.ac.uk/people/ is used, so the staff member must be part of ECS and not another school
